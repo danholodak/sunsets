@@ -1,0 +1,336 @@
+@font-face {
+    font-family: 'DIN Condensed Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('DIN Condensed Bold'), url('DINCondensed-Bold.woff') format('woff');
+}
+
+body {
+  background-image: url("images/website bg.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color: white;
+  font-size: 25px;
+  margin: 0px;
+  background-color: black;
+  font-family: 'DIN Condensed Bold';
+}
+
+main {
+    width: 80vw;
+    max-width: 1920px; /*this is sort of a hack so that videocontainer can be 100%, and never be more than 1920px*/
+    text-align: center;
+    margin: auto;
+    padding-bottom: 50px;
+}
+
+ @media only screen and (max-width: 600px) {
+  main {
+    width: 95vw;
+  }
+}
+
+h1 {
+    font-family: 'DIN Condensed Bold';
+    font-weight: normal;
+}
+h2{
+    font-family: 'DIN Condensed Bold';
+    font-weight: lighter;
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container figure {
+    width: 33%;
+    margin: 0;
+    min-width: min(600px, 100%);
+}
+
+figure {
+    width: 100%;
+}
+
+.container figure img {
+    width: 95%;
+}
+
+.center {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.center > * {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#menu {
+   display: none;
+    font-size: 24px;
+}
+
+/*https://www.w3schools.com/howto/howto_js_dropdown_sidenav.asp*/
+
+ /* Fixed sidenav, full height */
+ .sidenav {
+  width: 200px;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.75);
+  overflow-x: hidden;
+  padding: 20px;
+  padding-top: 90px; /* for the X button */
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #CCC;
+  display: block;
+  border: none;
+  background: none;
+  width:100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  font-family: 'DIN Condensed Bold';
+  font-weight: bold;
+  line-height: 38px;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+  color: #f1f1f1;
+}
+
+/* Main content */
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+  font-size: 20px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+  background-color: rgb(123, 199, 199);
+  color: #333;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  padding-left: 8px;
+}
+
+.dropdown-container a {
+  font-weight: normal;
+  line-height: normal;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* Optional: Style the drop down icon */
+.dropdown-arrow {
+  float: right;
+  padding-right: 8px;
+} 
+
+.header {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 10px 20px;
+    background: linear-gradient(rgba(0,0,0,0), rgba(100,100,100,0.5));
+    margin-bottom: 1rem;
+}
+
+.xbutton {
+  display: inline-block;
+  cursor: pointer;
+  z-index: 2;
+  padding: 20px;
+  width: 35px;
+  position: absolute;
+}
+
+/* just for the main page */
+.header .xbutton {
+  padding: 10px 0;
+  position: static;
+}
+
+.bar1, .bar2, .bar3 {
+  height: 5px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1, .change .bar2, .change .bar3 {
+  background-color: #CCC;
+}
+
+.change .bar1 {
+  transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  transform: rotate(45deg) translate(-9px, -9px);
+}
+
+.logo-wrapper {
+    background-image: radial-gradient(circle farthest-corner at center, rgb(100, 100, 100), rgba(100,100,100,0) 70%);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    float: left;
+    flex-shrink: 0;
+}
+
+.logo-wrapper img {
+   width: 80%;
+   height: 80%;
+   margin: 10%;
+}
+
+.header-socials {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-grow: 1;
+    float: left;
+}
+
+.header-socials a {
+    width: 50px;
+    height: 50px;
+}
+
+.header-socials img {
+    width: 80%;
+    margin: 10%;
+}
+
+.coming-soon {
+    filter: blur(2px) brightness(0.3);
+}
+
+.videocontainer {
+    position: relative;
+    width: 100%;
+    height: 0; /* this is super hacky - if we set height to 0, padding-bottom will be % based on width and make the div that height, so this way we get the aspect ratio we want. */ 
+    padding-bottom: 56.25%;
+    margin: 10px auto;
+}
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* for about and contact*/
+.text-page {
+     background-color: rgba(10,10,10,0.7); 
+     margin: 10px auto; 
+     padding: 10px 40px;
+}
+
+.text-page a, .text-page a::after {
+    color:  rgb(123, 199, 199);
+}
+.text-page a:hover {
+    color: skyblue;
+}
+
+.text-page h1 {
+    color: pink;
+}
+
+.text-page h2 {
+    color: sandybrown;
+}
+
+.text-page h3 {
+    color: moccasin;
+}
+
+/* for about */
+.bio {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.bio-img-parent {
+    width: calc(max(min(40%, 600px), 250px));
+    margin: auto;
+}
+
+.bio-img-parent img {
+    width: 100%;
+    height: auto;
+}
+
+.bio-text {
+    flex-basis: calc(50% - 4rem);  /* 4rem = 2rem padding each side */
+    flex-grow: 1;
+    margin-left: 3vw;
+    margin-right: 3vw;
+    background-color: rgba(0,0,0,0.5);
+    padding: 2rem;
+    max-width: calc(100% - 4rem - 6vw); /* 2rem padding each side, 3vw margin each side */
+}
+
+.bio-text h2 {
+    margin-top: 0px; /* too hard */
+    color: sandybrown;
+}
+
+.artist-socials {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+ @media only screen and (max-width: 600px) {
+  .artist-socials {
+   flex-wrap: wrap;
+  }
+}
+
+.artist-socials a {
+    flex-basis: 50px;
+    flex-shrink: 1;
+    padding: 10px 5px;
+    min-width: 40px;
+}
+
+.artist-socials a img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.videocontainercontainer {
+    max-width: 1000px;
+    width: 100%;
+    margin: auto;
+}
